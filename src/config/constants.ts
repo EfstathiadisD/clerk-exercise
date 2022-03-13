@@ -1,5 +1,5 @@
-export const BASE_URL_FN = (pageSize: number) => {
-  return `https://randomuser.me/api/?page=1&results=${pageSize}`;
+export const BASE_URL_FN = (page: number, pageSize: number) => {
+  return `https://randomuser.me/api/?page=${page}&results=${pageSize}`;
 };
 
 export const STORES = {

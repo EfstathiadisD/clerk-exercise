@@ -1,0 +1,25 @@
+.header--container {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-evenly;
+
+  padding: var(--space-5);
+}
+
+.header--picker {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-auto-flow: column;
+
+  gap: var(--space-1);
+}
+
+.header--actions {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-auto-flow: column;
+
+  gap: var(--space-1);
+}

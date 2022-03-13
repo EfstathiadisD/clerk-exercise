@@ -2,7 +2,9 @@ import create from "zustand";
 import { devtools, persist } from "zustand/middleware";
 import { BACKGROUND_ACTIONS, BASE_URL_FN, STORES, USER_ACTIONS } from "../config/constants";
 
-import { Users } from "../types";
+import type { Users } from "../types";
+
+/* BACKGROUND Store */
 
 export type BackgroundStore = {
   background: string;
@@ -31,7 +33,7 @@ export const setBackground = (background: string) => {
   );
 };
 
-/* USERS */
+/* USER Store */
 
 export type UsersStore = {
   isSuccess: boolean;
@@ -53,7 +55,7 @@ export const useUsersStore = create<UsersStore>(
   devtools(() => INITIAL_USERS_STORE, { anonymousActionType: STORES.USERS }),
 );
 
-export const setFetchUsers = async (pageSize: number) => {
+export const setFetchUsers = async (page: number, pageSize: number) => {
   try {
     useUsersStore.setState(
       (state) => ({
@@ -63,7 +65,7 @@ export const setFetchUsers = async (pageSize: number) => {
       true /* @ts-ignore */,
       USER_ACTIONS.ON_LOAD,
     );
-    const response = await (await fetch(BASE_URL_FN(pageSize))).json();
+    const response = await (await fetch(BASE_URL_FN(page, pageSize))).json();
 
     useUsersStore.setState(
       (state) => ({
