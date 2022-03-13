@@ -17,8 +17,8 @@ export const Card: React.VFC<CardProps> = (props) => {
   const background = useBackgroundStore((state) => state.background);
 
   return (
-    <div className={Styles.card} style={{ backgroundColor: background }}>
-      <div className={Styles["card--image"]}>
+    <div className={Styles.card} style={{ backgroundColor: background }} data-testid="card">
+      <div className={Styles["card--image"]} data-testid="card--image">
         <img src={picture} alt={picture} />
       </div>
       <div className={Styles["card--paragraph"]}>
