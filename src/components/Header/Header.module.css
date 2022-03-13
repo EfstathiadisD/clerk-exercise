@@ -1,8 +1,10 @@
 .header--container {
   display: grid;
-  grid-auto-flow: column;
-  justify-content: space-evenly;
-
+  gap: var(--space-5);
+  align-items: center;
+  justify-content: center;
+  /* grid-column: 2 / span 12; */
+  
   padding: var(--space-5);
 }
 

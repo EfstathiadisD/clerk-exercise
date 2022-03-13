@@ -89,6 +89,7 @@ button:focus {
 button.disabled,
 button[disabled] {
   cursor: not-allowed;
+  border-color: var(--background-1);
   background-color: var(--background-1);
 }
 
