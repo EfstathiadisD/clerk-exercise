@@ -1,46 +1,39 @@
-# Getting Started with Create React App
+# CLERK EXERCISE
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The requirement were met using React, and Create React App. In the project root directory, you can run:
 
-## Available Scripts
+- Run in Dev Mode with `yarn start`.
+- Run the Tests with `yarn test`.
 
-In the project directory, you can run:
+## A FEW NOTES:
 
-### `yarn start`
+Regarding the requirements, and the way they were implemented, here is some reationale:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Using Zustand, for State Mangement and Async Actions:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The exercise, required to create an App, we could implement, in various frameworks. 
+While I chose React, State Management is one of those things that need to be Framework Agnostic.
 
-### `yarn test`
+That's why I used Zustand. It has a core package, that would allow us to create a Store, and then
+we can use it in React, Vue, Angular even Plain HTML.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+It also, connects with Redux DevTools, meaning increased D.X, and is quite easily testable since it doesn't
+have any providers.
 
-### `yarn build`
+### UI and Prototype, aren't 100% the same
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The Prototype that was provided, is not implement exactly, but all the functionality is there. 
+Just a few differences, to make it easier to work across Web, Mobile devices.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Fetching User Data
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+I am fetching 9 User per requrest. I have implemented it, by manipulating the `page` and `pageSize` properties
+in their API. There is a Prev, Next Button, to fetch more stuff, but a request is made on mount.
 
-### `yarn eject`
+Regarding, this statement, `Therefore, fetch up to 100 users any way you like but avoid fetching them and display them all at once`,
+I am a bit confused, since it would require either Server + Client Side filtering or only Client Side but seems a bit contradicting to me.
+So, if you wanted that, it wouldn't be difficult to implement, but sorry, I didn't implement it.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Persistent Storage
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+The persistant is again, achieved by Zustand, with their `persist` middleware, and setting it into session-storage.
