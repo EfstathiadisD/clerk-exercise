@@ -3,6 +3,7 @@
     "browser": true,
     "es2021": true
   },
+  "plugins": ["react", "@typescript-eslint", "react-hooks", "prettier"],
   "extends": ["plugin:react/recommended", "airbnb", "plugin:prettier/recommended"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -10,9 +11,16 @@
       "jsx": true
     },
     "ecmaVersion": "latest",
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": "./tsconfig.json"
   },
-  "plugins": ["react", "@typescript-eslint", "react-hooks", "prettier"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
@@ -24,21 +32,9 @@
       }
     ],
     "import/prefer-default-export": "off",
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "ts": "never",
-        "tsx": "never"
-      }
-    ],
+    "import/extensions": ["error", "never", { "png": "always" }],
     "prettier/prettier": "error",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "react/jsx-one-expression-per-line": "off"
-  },
-  "settings": {
-    "import/resolver": {
-      "typescript": {}
-    }
   }
 }

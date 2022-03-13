@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import { Container } from "./Container/Container";
+
 export const App: React.VFC = () => {
-  return <div>This is the starting point</div>;
+  return <Container />;
 };

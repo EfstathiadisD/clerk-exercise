@@ -1,0 +1,10 @@
+.container {
+  padding: var(--space-5);
+
+  display: grid;
+  gap: var(--space-5);
+  align-items: center;
+  justify-content: center;
+  grid-column: 2 / span 12;
+  grid-template-columns: repeat(12, minmax(auto, var(--space-9)));
+}
